@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+
+        <input placeholder="digitar fruta" v-model="frutaAgregar.nuevaFruta" @keyup.enter="agregarFruta"/>
+        <input type="number" placeholder="digitar cantidad" v-model.number="frutaAgregar.cantidad" @keyup.enter="agregarFruta"/>
+        <button v-on:click="agregarFruta">Agregar</button>
+        <ul>
+            <li v-for="fruta of frutas">{{fruta.nombre}} - {{fruta.cantidad}}
+                <button @click="fruta.cantidad++">+</button>
+                <button @click="fruta.cantidad--">-</button>
+                <span v-if="fruta.cantidad === 0">- Sin Stock</span>
+            </li>
+        </ul>
+        <h4>TOTAL: {{sumarFruta}}</h4>
+    </div>
+
+    <script src="01.js"></script>
+
+</body>
+
+</html>
